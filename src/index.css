@@ -1,14 +1,56 @@
+@import "tailwindcss";
+
+/* Custom variables */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+    --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+    --color-primary-light: #3b82f6; /* blue-500 */
+    --color-primary-dark: #60a5fa; /* blue-400 */
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    /* Change bg-light to off-white */
+    --bg-light: #f9fafb;  /* off-white (Tailwind's gray-50) */
+    --text-light: #1f2937; /* gray-900 */
+}
+
+html.dark {
+    --bg-light: #111827; /* dark background */
+    --text-light: #f3f4f6; /* off-white text (Tailwind's gray-100) */
+}
+
+/* Base styles */
+html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    background-color: var(--bg-light);
+    color: var(--text-light);
+}
+
+
+/* Navbar backgrounds */
+/*nav {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+}
+
+html.dark nav {
+    background-color: var(--bg-light); !* Updated to use var *!
+    color: var(--text-light);
+}*/
+
+/* Animation */
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 1s ease-out;
 }
